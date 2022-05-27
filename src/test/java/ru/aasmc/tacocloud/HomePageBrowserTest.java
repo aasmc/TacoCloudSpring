@@ -1,6 +1,7 @@
 package ru.aasmc.tacocloud;
 
 import java.time.Duration;
+import java.util.concurrent.TimeUnit;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.AfterAll;
@@ -11,7 +12,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.boot.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 @ExtendWith(SpringExtension.class)
@@ -27,7 +28,7 @@ public class HomePageBrowserTest {
         browser = new HtmlUnitDriver();
 
         browser.manage().timeouts()
-                .implicitlyWait(Duration.ofSeconds(10));
+                .implicitlyWait(10, TimeUnit.SECONDS);
     }
 
     @AfterAll
