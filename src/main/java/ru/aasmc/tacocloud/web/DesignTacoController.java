@@ -9,13 +9,13 @@ import ru.aasmc.tacocloud.Ingredient;
 import ru.aasmc.tacocloud.Ingredient.Type;
 import ru.aasmc.tacocloud.Taco;
 import ru.aasmc.tacocloud.TacoOrder;
+import ru.aasmc.tacocloud.TacoUDT;
 import ru.aasmc.tacocloud.data.IngredientRepository;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.StreamSupport;
 
 
 @Controller
@@ -67,7 +67,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(taco);
+        tacoOrder.addTaco(new TacoUDT(taco.getName(), taco.getIngredients()));
 
         return "redirect:/orders/current";
     }
@@ -81,7 +81,6 @@ public class DesignTacoController {
     }
 
 }
-
 
 
 
