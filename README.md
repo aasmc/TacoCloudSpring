@@ -18,4 +18,19 @@ create keyspace tacocloud
   ... and durable_writes=true;
 ```
 
+### Branch spring_data_mongodb
+To run the app in that branch you need to have a MongoDB server running
+locally and listening on port 27017. This can be easily achieved with
+Docker by running the following command:
+- $ docker run -p 27017:27017 -d mongo:latest
+
+But for convenience we can use an embedded Mongo database instead.
+To do that we need to use the following dependency:
+```xml
+<dependency>
+  <groupId>de.flapdoodle.embed</groupId>
+  <artifactId>de.flapdoodle.embed.mongo</artifactId>
+  <!-- <scope>test</scope> -->
+</dependency>
+```
 
